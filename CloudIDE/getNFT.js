@@ -1,12 +1,13 @@
 Moralis.Cloud.define("getNFT", async (request) => {
+  const logger = Moralis.Cloud.getLogger()
+
   let NFTId = request.params.nftId;
-  let hexId = parseInt(NFTId).string(16);
+  let hexId = parseInt(NFTId).toString(16);
   let paddedHex = ("0000000000000000000000000000000000000000000000000000000000000000" + hexId).slice(-64)
-  
-  Moralis.Cloud.httpRequest({url: "https://utsohh6xleee.usemoralis.com/" + paddedHex + ".json"})
+  logger.info(paddedHex);
+  Moralis.Cloud.httpRequest({url: "https://cllcdhblo2ym.usemoralis.com/" + paddedHex + ".json"})
   .then(function(httpResponse){
   	return httpResponse.text;
   })
   
 })
-                     

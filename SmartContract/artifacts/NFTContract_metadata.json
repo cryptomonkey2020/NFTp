@@ -494,7 +494,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"Opensea_nft.sol": "NFTContract"
+			"SmartContract/Opensea_nft.sol": "NFTContract"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -508,11 +508,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"Opensea_nft.sol": {
-			"keccak256": "0x71f50c648d268bf862a1559b7ea04d5aba36a01fc5947e34336b9dece3209da9",
+		"SmartContract/Opensea_nft.sol": {
+			"keccak256": "0x448cc18c8182de5f588df3724ccb0053167aa6ac79cbace04dc2d53294569a79",
 			"urls": [
-				"bzz-raw://c21b3d5379816b8e62c59741fafdebf40d8a092950af31c6104a0a01491fe5d1",
-				"dweb:/ipfs/QmW5yKBURDCEcbWhmViwKPoh2evc2xAFGDwmcwKS1SCgHj"
+				"bzz-raw://778c4f48bbf846ed42278ca5eaf037f40e5a98f20f27cd70b8c8ebec55c9751d",
+				"dweb:/ipfs/QmTAUyBcVmiHHh2uRd5hDfAQh2PxtEh4oU5KKJDUh1usro"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol": {

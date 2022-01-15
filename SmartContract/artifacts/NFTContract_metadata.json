@@ -509,10 +509,10 @@
 	},
 	"sources": {
 		"SmartContract/Opensea_nft.sol": {
-			"keccak256": "0x448cc18c8182de5f588df3724ccb0053167aa6ac79cbace04dc2d53294569a79",
+			"keccak256": "0xbfe334c4188552bf8174ab425540ab71b3bda198928d90c1e233ebb561b03acf",
 			"urls": [
-				"bzz-raw://778c4f48bbf846ed42278ca5eaf037f40e5a98f20f27cd70b8c8ebec55c9751d",
-				"dweb:/ipfs/QmTAUyBcVmiHHh2uRd5hDfAQh2PxtEh4oU5KKJDUh1usro"
+				"bzz-raw://85c9defcab976a406657645b394511dfddd381ede930c87e517af8b2a19e9939",
+				"dweb:/ipfs/QmQv7fBrcKgJsy7R9RrNrFBHThw7nMjbYRyzAt7wYEpbzJ"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol": {

@@ -1,7 +1,7 @@
 //test 2
-const serverUrl = "https://cllcdhblo2ym.usemoralis.com:2053/server";
-const appId = "w6wCsm2SxAiNUkW5A4P4l1xGOhdy8jUfpMf7Nnhw";
-const contractaddr = "0x63d8d3B8c7179d55Ef93286Fd8f908c5D84588E2";
+const serverUrl = "https://gesqofutph1n.usemoralis.com:2053/server";
+const appId = "wg6NIpnMe6Suo9fOVPPKh9eaQEJtxnuahDnwng3x";
+const contractaddr = "0x4A7128c62C2069cA3529DE8EC0048D4e61909226";
 
 Moralis.start({ serverUrl, appId });
 
@@ -45,7 +45,7 @@ async function initializeApp(){
     const options = {address: contractaddr , chain : "Mumbai" };
     let NFTs = await Moralis.Web3API.token.getAllTokenIds(options);
     let NFTWithMetadata = await fetchNFTMetadata(NFTs.result);
-    console.log(NFTWithMetadata);
+    console.log(NFTs);
 }
 
 initializeApp();

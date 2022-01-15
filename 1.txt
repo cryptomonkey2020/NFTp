@@ -1,0 +1,4 @@
+1 Min intro 
+1 min Tech stack 
+1.5 min Demo 
+0.5 min MVP ( what was cut out and why) 

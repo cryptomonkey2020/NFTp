@@ -1,4 +1,4 @@
-//test 2
+//test 7
 const serverUrl = "https://gesqofutph1n.usemoralis.com:2053/server";
 const appId = "wg6NIpnMe6Suo9fOVPPKh9eaQEJtxnuahDnwng3x";
 const contractaddr = "0x4A7128c62C2069cA3529DE8EC0048D4e61909226";
@@ -12,9 +12,22 @@ function fetchNFTMetadata(NFTs){
         let id = nft.token_id;
         promises.push(fetch(serverUrl + "/functions/getNFT?_ApplicationId=" + appId + "&nftId=" + id)
         .then(res => res.json())
-       .then(res => JSON.parse(res.result))
+        .then(res => JSON.parse(res.result))
         .then(res => {nft.metadata = res})
-        .then( () => {return nft;}))
+        .then(res => {
+            const options = {address: contractaddr, token_id: id , chain: "Mumbai"};
+            return Moralis.Web3API.token.getTokenIdOwners (options)
+        })
+     //   .then( () => {return nft;}))
+     //.then( (res) => {console.log(res)}))
+     .then( (res) => {
+         nft.owners = [];
+         res.result.forEach(element => {
+            nft.owners.push(element.ownerOf);
+
+         });
+         return nft;
+     }))
     }
     return Promise.all(promises);
 }
@@ -29,7 +42,9 @@ function renderInventory(NFTs){
         <div class="card-body">
             <h5 class="card-title">${nft.metadata.name}</h5>
             <p class="card-text">${nft.metadata.description}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <p class="card-text">Number of Owners : ${nft.owners.length}</p>
+            <p class="card-text">Total Amount : ${nft.amount}</p>
+            <a href="./mint.html?nftId=${nft.token_id}" class="btn btn-primary">Mint</a>
         </div>
 
         </div> 
@@ -40,6 +55,9 @@ function renderInventory(NFTs){
         parent.appendChild(col);
     }
 }   
+
+
+
 
 async function initializeApp(){
     let currentUser = Moralis.User.current(); 

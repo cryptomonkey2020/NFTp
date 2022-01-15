@@ -12,30 +12,34 @@ function fetchNFTMetadata(NFTs){
         let id = nft.token_id;
         promises.push(fetch(serverUrl + "/functions/getNFT?_ApplicationId=" + appId + "&nftId=" + id)
         .then(res => res.json())
-        .then(res => JSON.parse(res.result))
+       .then(res => JSON.parse(res.result))
         .then(res => {nft.metadata = res})
         .then( () => {return nft;}))
     }
     return Promise.all(promises);
 }
 
-
 function renderInventory(NFTs){
+    const parent = document.getElementById("app");
     for (let i = 0; i < NFTs.length; i++) {
         const nft = NFTs[i];
         let htmlString= `
-        <div class= "card" style="width: 18rem;" >
-            <img class="card-img-top" src="${nft.metadata.image}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">${nft.metadata.name}</h5>
-                <p class="card-text">${nft.metadata.description}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
+        <div class= "card">
+        <img class="card-img-top" src="${nft.metadata.image}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">${nft.metadata.name}</h5>
+            <p class="card-text">${nft.metadata.description}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
 
-            </div> `
+        </div> 
+        `
+        let col = document.createElement("div");
+        col.className = "col col-md-4"
+        col.innerHTML = htmlString;
+        parent.appendChild(col);
     }
 }   
-
 
 async function initializeApp(){
     let currentUser = Moralis.User.current(); 
@@ -45,7 +49,8 @@ async function initializeApp(){
     const options = {address: contractaddr , chain : "Mumbai" };
     let NFTs = await Moralis.Web3API.token.getAllTokenIds(options);
     let NFTWithMetadata = await fetchNFTMetadata(NFTs.result);
-    console.log(NFTs);
+    console.log(NFTWithMetadata);
+    renderInventory(NFTWithMetadata);
 }
 
 initializeApp();

@@ -1,6 +1,7 @@
 const serverUrl = "https://gesqofutph1n.usemoralis.com:2053/server";
 const appId = "wg6NIpnMe6Suo9fOVPPKh9eaQEJtxnuahDnwng3x";
 const contractaddr = "0x4A7128c62C2069cA3529DE8EC0048D4e61909226";
+let web3;
 
 Moralis.start({ serverUrl, appId });
 

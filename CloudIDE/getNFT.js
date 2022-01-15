@@ -11,4 +11,3 @@ Moralis.Cloud.define("getNFT", async (request) => {
   })
   
 });
-
